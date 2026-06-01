@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: sahabat-aksara-api
+    runtime: python
+    plan: free
+    region: singapore
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.0"
+      - key: SUPABASE_URL
+        value: https://wwuenuxidmwomfwigdre.supabase.co
+        sync: false
+      - key: SUPABASE_KEY
+        value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind3dWVudXhpZG13b21md2lnZHJlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2MTU5MjIsImV4cCI6MjA5NDE5MTkyMn0.Oxo7If4bkn49XJzxnQsUy_S_LLYSC-y3krdxFjWw70I
+        sync: false
+      - key: CORS_ORIGINS
+        value: http://localhost:5173,https://sahabat-aksara.vercel.app
+    healthCheckPath: /api/health
+    autoDeploy: true
