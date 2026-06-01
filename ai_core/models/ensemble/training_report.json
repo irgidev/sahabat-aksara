@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-05-30T10:15:55.931128",
+  "ensemble_dir": "C:\\Documents\\Desktop\\Project\\sahabat-aksara\\ai_core\\models\\ensemble",
+  "models": {
+    "soft_voting": {
+      "file": "C:\\Documents\\Desktop\\Project\\sahabat-aksara\\ai_core\\models\\ensemble\\voting_classifier.pkl",
+      "accuracy": 1.0,
+      "type": "VotingClassifier(soft)"
+    },
+    "stacking": {
+      "file": "C:\\Documents\\Desktop\\Project\\sahabat-aksara\\ai_core\\models\\ensemble\\stacking_meta.pkl",
+      "accuracy": 1.0,
+      "type": "StackingClassifier(LR meta)"
+    }
+  },
+  "config": {
+    "version": "1.0",
+    "description": "PKB-5 hybrid ensemble weights — CV + ML + DL branches",
+    "branches": {
+      "cv": {
+        "weight": 0.25,
+        "description": "Computer Vision pattern matching (baseline)"
+      },
+      "ml": {
+        "weight": 0.4,
+        "description": "Classical ML models (SVM/RF/kNN)"
+      },
+      "dl": {
+        "weight": 0.35,
+        "description": "Deep Learning CNN / Transfer Learning"
+      }
+    },
+    "fallback_weights": {
+      "cv": {
+        "weight": 0.5,
+        "description": "CV-only fallback when ML/DL unavailable"
+      },
+      "ml": {
+        "weight": 0.5,
+        "description": "ML-only fallback when CV/DL unavailable"
+      },
+      "cv_ml": {
+        "weight": {
+          "cv": 0.45,
+          "ml": 0.55
+        },
+        "description": "CV+ML when DL unavailable"
+      }
+    },
+    "confidence_thresholds": {
+      "high": 80,
+      "medium": 55,
+      "low": 25
+    },
+    "star_thresholds": [
+      25,
+      45,
+      65
+    ],
+    "last_updated": "2026-05-30T10:15:59.992801"
+  },
+  "status": "completed"
+}

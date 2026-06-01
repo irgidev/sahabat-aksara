@@ -1,0 +1,253 @@
+{
+  "total_experiments": 13,
+  "last_updated": "2026-05-30T13:06:46.000528",
+  "experiments": [
+    {
+      "id": "16acdcc96c99",
+      "name": "Test Experiment",
+      "category": "unit_test",
+      "timestamp": "2026-05-30T13:06:45.806080",
+      "params": {
+        "lr": 0.001,
+        "epochs": 10
+      },
+      "results": {
+        "accuracy": 0.85
+      },
+      "tags": [
+        "test"
+      ],
+      "notes": "",
+      "environment": {
+        "python_version": "3.13.7",
+        "platform": "win32"
+      },
+      "duration_sec": 0,
+      "run_count": 7,
+      "last_run": "2026-05-30T13:06:45.818008"
+    },
+    {
+      "id": "6adb880c610f",
+      "name": "A/B Test: winner_test",
+      "category": "ab_test",
+      "timestamp": "2026-05-30T13:06:45.957337",
+      "params": {
+        "group_a": "Model A",
+        "group_b": "Model B"
+      },
+      "results": {
+        "winner": "tie",
+        "margin": 0,
+        "acc_group_a": 1.0,
+        "acc_group_b": 1.0
+      },
+      "tags": [
+        "ab_test",
+        "comparison"
+      ],
+      "notes": "",
+      "environment": {
+        "python_version": "3.13.7",
+        "platform": "win32"
+      },
+      "duration_sec": 0,
+      "run_count": 7,
+      "last_run": "2026-05-30T13:06:45.969581"
+    },
+    {
+      "id": "49d2798bc571",
+      "name": "Persistence Test",
+      "category": "unit_test",
+      "timestamp": "2026-05-30T13:06:45.820600",
+      "params": {},
+      "results": {
+        "acc": 0.9
+      },
+      "tags": [],
+      "notes": "",
+      "environment": {
+        "python_version": "3.13.7",
+        "platform": "win32"
+      },
+      "duration_sec": 0,
+      "run_count": 6,
+      "last_run": "2026-05-30T13:06:45.831993"
+    },
+    {
+      "id": "621500776db8",
+      "name": "Cat-A-1",
+      "category": "alpha",
+      "timestamp": "2026-05-30T13:06:45.845488",
+      "params": {},
+      "results": {},
+      "tags": [],
+      "notes": "",
+      "environment": {
+        "python_version": "3.13.7",
+        "platform": "win32"
+      },
+      "duration_sec": 0,
+      "run_count": 6,
+      "last_run": "2026-05-30T13:06:45.845803"
+    },
+    {
+      "id": "038b0ac1bcd8",
+      "name": "Cat-B-1",
+      "category": "beta",
+      "timestamp": "2026-05-30T13:06:45.846964",
+      "params": {},
+      "results": {},
+      "tags": [],
+      "notes": "",
+      "environment": {
+        "python_version": "3.13.7",
+        "platform": "win32"
+      },
+      "duration_sec": 0,
+      "run_count": 6,
+      "last_run": "2026-05-30T13:06:45.855772"
+    },
+    {
+      "id": "3950b8d6f5fb",
+      "name": "Limit-0",
+      "category": "limit_test",
+      "timestamp": "2026-05-30T13:06:45.870802",
+      "params": {},
+      "results": {},
+      "tags": [],
+      "notes": "",
+      "environment": {
+        "python_version": "3.13.7",
+        "platform": "win32"
+      },
+      "duration_sec": 0,
+      "run_count": 6,
+      "last_run": "2026-05-30T13:06:45.871308"
+    },
+    {
+      "id": "012a4679b13b",
+      "name": "Limit-1",
+      "category": "limit_test",
+      "timestamp": "2026-05-30T13:06:45.872669",
+      "params": {},
+      "results": {},
+      "tags": [],
+      "notes": "",
+      "environment": {
+        "python_version": "3.13.7",
+        "platform": "win32"
+      },
+      "duration_sec": 0,
+      "run_count": 6,
+      "last_run": "2026-05-30T13:06:45.885901"
+    },
+    {
+      "id": "97342db2797a",
+      "name": "Limit-2",
+      "category": "limit_test",
+      "timestamp": "2026-05-30T13:06:45.886842",
+      "params": {},
+      "results": {},
+      "tags": [],
+      "notes": "",
+      "environment": {
+        "python_version": "3.13.7",
+        "platform": "win32"
+      },
+      "duration_sec": 0,
+      "run_count": 6,
+      "last_run": "2026-05-30T13:06:45.901073"
+    },
+    {
+      "id": "6b0c16fe543c",
+      "name": "Limit-3",
+      "category": "limit_test",
+      "timestamp": "2026-05-30T13:06:45.901744",
+      "params": {},
+      "results": {},
+      "tags": [],
+      "notes": "",
+      "environment": {
+        "python_version": "3.13.7",
+        "platform": "win32"
+      },
+      "duration_sec": 0,
+      "run_count": 6,
+      "last_run": "2026-05-30T13:06:45.912248"
+    },
+    {
+      "id": "131ecc7a27ac",
+      "name": "Limit-4",
+      "category": "limit_test",
+      "timestamp": "2026-05-30T13:06:45.913132",
+      "params": {},
+      "results": {},
+      "tags": [],
+      "notes": "",
+      "environment": {
+        "python_version": "3.13.7",
+        "platform": "win32"
+      },
+      "duration_sec": 0,
+      "run_count": 6,
+      "last_run": "2026-05-30T13:06:45.927060"
+    },
+    {
+      "id": "86f630eee9cf",
+      "name": "Dup Test",
+      "category": "dup",
+      "timestamp": "2026-05-30T13:06:45.942574",
+      "params": {
+        "unique_param": "same"
+      },
+      "results": {},
+      "tags": [],
+      "notes": "",
+      "environment": {
+        "python_version": "3.13.7",
+        "platform": "win32"
+      },
+      "duration_sec": 0,
+      "run_count": 12,
+      "last_run": "2026-05-30T13:06:45.954864"
+    },
+    {
+      "id": "171fc0b4bb63",
+      "name": "Best-80",
+      "category": "best_test",
+      "timestamp": "2026-05-30T13:06:45.972741",
+      "params": {},
+      "results": {
+        "accuracy": 0.8
+      },
+      "tags": [],
+      "notes": "",
+      "environment": {
+        "python_version": "3.13.7",
+        "platform": "win32"
+      },
+      "duration_sec": 0,
+      "run_count": 6,
+      "last_run": "2026-05-30T13:06:45.985772"
+    },
+    {
+      "id": "75e66cb9f6fe",
+      "name": "Best-95",
+      "category": "best_test",
+      "timestamp": "2026-05-30T13:06:45.986494",
+      "params": {},
+      "results": {
+        "accuracy": 0.95
+      },
+      "tags": [],
+      "notes": "",
+      "environment": {
+        "python_version": "3.13.7",
+        "platform": "win32"
+      },
+      "duration_sec": 0,
+      "run_count": 6,
+      "last_run": "2026-05-30T13:06:46.000514"
+    }
+  ]
+}

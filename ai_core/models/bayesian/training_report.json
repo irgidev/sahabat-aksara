@@ -1,0 +1,32 @@
+{
+  "model_type": "BayesianScorer (Gaussian Naive Bayes)",
+  "n_features": 20,
+  "n_samples": {
+    "train": 400,
+    "test": 100
+  },
+  "metrics": {
+    "mae": 11.6153,
+    "rmse": 13.941,
+    "bucket_accuracy": 0.7,
+    "avg_uncertainty": 5.8526
+  },
+  "top_features": {
+    "centeredness": 2.1602,
+    "symmetry": 1.6492,
+    "stroke_density": 1.2112,
+    "stroke_uniformity": 1.121,
+    "aspect_ratio": 0.7575,
+    "feature_9": 0.1034,
+    "feature_5": 0.0925,
+    "feature_13": 0.0836,
+    "feature_7": 0.0815,
+    "feature_14": 0.0683
+  },
+  "priors": {
+    "low": 0.4025,
+    "medium": 0.31,
+    "high": 0.2875
+  },
+  "trained_at": "2026-05-30T09:22:35.823655"
+}

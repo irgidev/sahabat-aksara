@@ -1,0 +1,78 @@
+{
+  "timestamp": "2026-05-30T13:05:47.186174",
+  "summary": {
+    "total_models": 2,
+    "successful": 2,
+    "failed": 0,
+    "total_time_ms": 1528.6,
+    "n_features": 44,
+    "n_train": 37,
+    "n_test": 10
+  },
+  "models": {
+    "knn": {
+      "success": true,
+      "display_name": "k-Nearest Neighbors",
+      "metrics": {
+        "accuracy_train": 0.9459,
+        "accuracy_test": 0.0,
+        "precision_weighted": 0.0,
+        "recall_weighted": 0.0,
+        "f1_weighted": 0.0,
+        "precision_macro": 0.0,
+        "recall_macro": 0.0,
+        "f1_macro": 0.0,
+        "top3_accuracy": null,
+        "top5_accuracy": null,
+        "overfitting_gap": 0.9459,
+        "overfitting_status": "severe",
+        "n_classes_test": 8,
+        "has_probability": true
+      },
+      "timing": {
+        "total_ms": 1511.9,
+        "inference_ms": 1410.8,
+        "n_train": 37,
+        "n_test": 10,
+        "n_features": 44
+      },
+      "model_file": "C:\\Documents\\Desktop\\Project\\sahabat-aksara\\ai_core\\models\\classical\\knn.pkl",
+      "model_size_kb": 15.4,
+      "best_params": null,
+      "feature_importance": null,
+      "error": null
+    },
+    "naive_bayes": {
+      "success": true,
+      "display_name": "Naive Bayes (Gaussian)",
+      "metrics": {
+        "accuracy_train": 0.9459,
+        "accuracy_test": 0.0,
+        "precision_weighted": 0.0,
+        "recall_weighted": 0.0,
+        "f1_weighted": 0.0,
+        "precision_macro": 0.0,
+        "recall_macro": 0.0,
+        "f1_macro": 0.0,
+        "top3_accuracy": null,
+        "top5_accuracy": null,
+        "overfitting_gap": 0.9459,
+        "overfitting_status": "severe",
+        "n_classes_test": 8,
+        "has_probability": true
+      },
+      "timing": {
+        "total_ms": 11.1,
+        "inference_ms": 1.04,
+        "n_train": 37,
+        "n_test": 10,
+        "n_features": 44
+      },
+      "model_file": "C:\\Documents\\Desktop\\Project\\sahabat-aksara\\ai_core\\models\\classical\\naive_bayes.pkl",
+      "model_size_kb": 21.3,
+      "best_params": null,
+      "feature_importance": null,
+      "error": null
+    }
+  }
+}

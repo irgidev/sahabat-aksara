@@ -1,0 +1,42 @@
+{
+  "cnn": {
+    "accuracy": 0.025,
+    "top_3_accuracy": 0.05,
+    "top_5_accuracy": 0.125,
+    "inference_ms": 3.77,
+    "type": "Deep Learning (CNN)"
+  },
+  "comparison_generated_at": "2026-05-30T08:41:24.927366",
+  "classical_models": {
+    "knn": {
+      "accuracy": 0,
+      "inference_ms": 1319.53,
+      "type": "Classical ML"
+    },
+    "naive_bayes": {
+      "accuracy": 0,
+      "inference_ms": 1.45,
+      "type": "Classical ML"
+    },
+    "svm": {
+      "accuracy": 0,
+      "inference_ms": 1.23,
+      "type": "Classical ML"
+    },
+    "decision_tree": {
+      "accuracy": 0,
+      "inference_ms": 0.38,
+      "type": "Classical ML"
+    },
+    "random_forest": {
+      "accuracy": 0,
+      "inference_ms": 46.52,
+      "type": "Classical ML"
+    },
+    "logistic_regression": {
+      "accuracy": 0,
+      "inference_ms": 0.75,
+      "type": "Classical ML"
+    }
+  }
+}

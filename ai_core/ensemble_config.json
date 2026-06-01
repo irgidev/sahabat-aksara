@@ -1,0 +1,18 @@
+{
+  "global_weights": {
+    "skeleton": 0.55,
+    "structural": 0.25,
+    "hog": 0.06,
+    "ssim": 0.06,
+    "distance": 0.03,
+    "completeness": 0.03,
+    "stroke_count": 0.02
+  },
+  "character_overrides": {},
+  "scorer_config": {
+    "skeleton": {
+      "tolerance_px": 5
+    }
+  },
+  "boost_enabled": true
+}

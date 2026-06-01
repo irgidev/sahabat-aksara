@@ -1,0 +1,27 @@
+{
+  "pipeline": "probability_calibration",
+  "n_samples": 500,
+  "n_classes": 10,
+  "model_comparison": {
+    "Overconfident": {
+      "brier_score": 0.127129,
+      "ece": 0.50741,
+      "level": "very_poor"
+    },
+    "Underconfident": {
+      "brier_score": 0.091873,
+      "ece": 0.09482,
+      "level": "moderate"
+    },
+    "Well-Calibrated": {
+      "brier_score": 0.098694,
+      "ece": 0.2161,
+      "level": "very_poor"
+    }
+  },
+  "calibration_methods_tested": [
+    "Platt",
+    "Temperature"
+  ],
+  "generated_at": "2026-05-30T09:22:52.851984"
+}

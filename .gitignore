@@ -1,0 +1,72 @@
+# ══════════════════════════════════════════════════════════
+# Sahabat Aksara — .gitignore
+# ══════════════════════════════════════════════════════════
+
+# ─── Secrets & Credentials (JANGAN PERNAH COMMIT!) ───
+.env
+.env.local
+.env.production
+*.pem
+*.key
+!*.example
+
+# ─── Dependencies ───
+node_modules/
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.Python
+pip-log.txt
+
+# ─── Build & Cache ───
+.next/
+dist/
+build/
+.cache/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# ─── Laporan, PPT, Dokumentasi Tugas (tidak masuk repo) ───
+pembuatan_laporan_dan_ppt_akhir/
+reports/
+docs/paud.html
+
+# ─── Data Science / Notebooks (tidak bagian app produksi) ───
+data_science/
+*.ipynb
+*.csv
+*.xlsx
+datasets/
+processed/
+
+# ─── Debug & Test Artifacts ───
+test_letter_A.png
+backend/debug_*.png
+backend/stroke_*.png
+strip_comments.py
+.backup_before_strip_comments/
+
+# ─── OS & Editor ───
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# ─── Windows Artifacts ───
+nul
+desktop.ini
+
+# ─── Logs ───
+*.log
+logs/
+tmp/
+/tmp.*
+
+# ─── Vercel ───
+.vercel
