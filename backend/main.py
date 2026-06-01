@@ -40,7 +40,7 @@ history_scores = []
 
 
 
-_cors_origins_raw = os.environ.get("CORS_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173,http://localhost:5174,http://127.0.0.1:5174")
+_cors_origins_raw = os.environ.get("CORS_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173,http://localhost:5174,http://127.0.0.1:5174,https://sahabat-aksara.vercel.app")
 CORS_ORIGINS = [o.strip() for o in _cors_origins_raw.split(",") if o.strip()]
 
 from starlette.middleware.base import BaseHTTPMiddleware
@@ -1962,3 +1962,9 @@ async def health_check():
         "version": "2.1.0",
         "supabase_connected": supabase is not None
     }
+
+
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)

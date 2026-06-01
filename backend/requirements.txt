@@ -1,7 +1,7 @@
-fastapi
-uvicorn
-pydantic
-numpy
-opencv-python
-supabase
-python-dotenv
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic==2.10.4
+numpy==1.26.4
+opencv-python-headless==4.10.0.84
+supabase==2.11.3
+python-dotenv==1.0.1
