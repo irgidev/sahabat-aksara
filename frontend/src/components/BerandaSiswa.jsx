@@ -11,6 +11,7 @@ import {
   PencilLine,
 } from "@phosphor-icons/react";
 import KidNavBar from "./KidNavBar";
+import API_BASE from "../lib/api";
 
 
 function getGreeting() {
@@ -50,8 +51,8 @@ export default function BerandaSiswa({ onNavigate, student }) {
     const fetchData = async () => {
       try {
         const [progressRes, chartRes] = await Promise.all([
-          fetch(`http://localhost:8000/api/student/${student?.id || "11111111-1111-1111-1111-111111111111"}/progress`),
-          fetch("http://localhost:8000/api/dashboard/chart-data?days=7"),
+          fetch(`${API_BASE}/api/student/${student?.id || "11111111-1111-1111-1111-111111111111"}/progress`),
+          fetch(`${API_BASE}/api/dashboard/chart-data?days=7`),
         ]);
 
         const progressData = await progressRes.json();

@@ -56,10 +56,7 @@ import {
 } from 'recharts';
 import useAuthStore from '../stores/useAuthStore';
 import FaceEnrollmentForm from './FaceEnrollmentForm';
-
-
-
-const API_BASE = 'http://localhost:8000';
+import API_BASE from '../lib/api';
 
 const TABS = [
   { id: 'dashboard', label: 'Dashboard', icon: SquaresFour },

@@ -15,8 +15,7 @@ import {
 } from '@phosphor-icons/react';
 import * as faceapi from 'face-api.js';
 import { loadModels } from '../lib/face-api';
-
-const API_BASE = 'http://localhost:8000';
+import API_BASE from '../lib/api';
 
 const VIDEO_CONSTRAINTS = {
   width: 320,

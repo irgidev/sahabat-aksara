@@ -12,7 +12,7 @@ import {
   PaintBucket,
 } from "@phosphor-icons/react";
 import confetti from "canvas-confetti";
-
+import API_BASE from '../lib/api';
 
 const COLORS = [
   { name: "Hitam", value: "#1e293b", ring: "ring-slate-400" },
@@ -370,7 +370,7 @@ export default function Canvas({ onNavigate, lesson, student }) {
     };
 
     try {
-      const res = await fetch("http://localhost:8000/api/evaluate", {
+      const res = await fetch(`${API_BASE}/api/evaluate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

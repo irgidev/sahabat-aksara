@@ -14,8 +14,7 @@ import {
 } from '@phosphor-icons/react';
 import CameraView from './CameraView';
 import { loadModels, findBestMatch, parseDescriptor, MATCH_THRESHOLD } from '../lib/face-api';
-
-const API_BASE = 'http://localhost:8000';
+import API_BASE from '../lib/api';
 
 
 const DEMO_STUDENT = {

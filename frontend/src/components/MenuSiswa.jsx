@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import API_BASE from "../lib/api";
 import {
   PencilCircle,
   SignOut,
@@ -92,7 +93,7 @@ export default function MenuSiswa({ onNavigate, student, initialCategory }) {
   
   useEffect(() => {
     if (student?.id) {
-      fetch(`http://localhost:8000/api/student/${student.id}/progress`)
+      fetch(`${API_BASE}/api/student/${student.id}/progress`)
         .then((res) => res.json())
         .then((data) => {
           const map = {};
