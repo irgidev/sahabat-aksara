@@ -25,10 +25,14 @@ const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8000';
 export async function apiFetch(url, options = {}, config = {}) {
   const isTunnel = API_BASE.includes('ngrok') || API_BASE.includes('trycloudflare') || API_BASE.includes('localtunnel');
   const timeoutMs = config.timeoutMs || (isTunnel ? 30000 : 15000);
-  const retries = config.retries ?? (isTunnel ? 2 : 1);
+  const retries = config.retries ?? (isTunnel ? 1 : 1);
   const retryDelayMs = config.retryDelayMs || 1000;
 
   const fullUrl = url.startsWith('http') ? url : `${API_BASE}${url}`;
+
+  // ngrok free tier injects a browser warning page that blocks API calls.
+  // This header tells ngrok to skip the warning and return raw response.
+  const ngrokHeaders = isTunnel ? { 'ngrok-skip-browser-warning': '1' } : {};
 
   for (let attempt = 0; attempt <= retries; attempt++) {
     try {
@@ -37,6 +41,10 @@ export async function apiFetch(url, options = {}, config = {}) {
 
       const res = await fetch(fullUrl, {
         ...options,
+        headers: {
+          ...ngrokHeaders,
+          ...(options.headers || {}),
+        },
         signal: controller.signal,
       });
 
