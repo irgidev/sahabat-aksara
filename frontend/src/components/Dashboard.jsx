@@ -56,7 +56,7 @@ import {
 } from 'recharts';
 import useAuthStore from '../stores/useAuthStore';
 import FaceEnrollmentForm from './FaceEnrollmentForm';
-import API_BASE from '../lib/api';
+import API_BASE, { apiFetch } from '../lib/api';
 
 const TABS = [
   { id: 'dashboard', label: 'Dashboard', icon: SquaresFour },
@@ -174,7 +174,7 @@ export default function Dashboard({ supabase, onLogout }) {
 
   const fetchSummary = useCallback(async () => {
     try {
-      const res = await fetch(`${API_BASE}/api/dashboard/summary`);
+      const res = await apiFetch('/api/dashboard/summary');
       const data = await res.json();
       setSummary(data);
     } catch (err) {
@@ -184,7 +184,7 @@ export default function Dashboard({ supabase, onLogout }) {
 
   const fetchChartData = useCallback(async () => {
     try {
-      const res = await fetch(`${API_BASE}/api/dashboard/chart-data?days=7`);
+      const res = await apiFetch('/api/dashboard/chart-data?days=7');
       const data = await res.json();
       setChartData(data);
     } catch (err) {
@@ -194,7 +194,7 @@ export default function Dashboard({ supabase, onLogout }) {
 
   const fetchActivities = useCallback(async () => {
     try {
-      const res = await fetch(`${API_BASE}/api/dashboard/activity?limit=10`);
+      const res = await apiFetch('/api/dashboard/activity?limit=10');
       const data = await res.json();
       setActivities(data.activities || []);
     } catch (err) {
@@ -213,7 +213,7 @@ export default function Dashboard({ supabase, onLogout }) {
         if (!error && data) setStudents(data);
       } else {
         
-        const res = await fetch(`${API_BASE}/api/students`);
+        const res = await apiFetch('/api/students');
         const data = await res.json();
         setStudents(data);
       }
@@ -225,8 +225,8 @@ export default function Dashboard({ supabase, onLogout }) {
   const fetchStudentDetail = useCallback(async (studentId) => {
     try {
       const [progressRes, studentProgress] = await Promise.all([
-        fetch(`${API_BASE}/api/student/${studentId}/progress`),
-        fetch(`${API_BASE}/api/dashboard/reports?student_id=${studentId}&limit=50`),
+        apiFetch(`/api/student/${studentId}/progress`),
+        apiFetch(`/api/dashboard/reports?student_id=${studentId}&limit=50`),
       ]);
       const progressData = await progressRes.json();
       const reportsData = await studentProgress.json();
@@ -251,7 +251,7 @@ export default function Dashboard({ supabase, onLogout }) {
 
   const fetchHeatmap = useCallback(async () => {
     try {
-      const res = await fetch(`${API_BASE}/api/dashboard/heatmap`);
+      const res = await apiFetch('/api/dashboard/heatmap');
       const data = await res.json();
       setHeatmapData(data);
     } catch (err) {
@@ -261,7 +261,7 @@ export default function Dashboard({ supabase, onLogout }) {
 
   const fetchCharRankings = useCallback(async () => {
     try {
-      const res = await fetch(`${API_BASE}/api/dashboard/character-rankings`);
+      const res = await apiFetch('/api/dashboard/character-rankings');
       const data = await res.json();
       setCharRankings(data.rankings || []);
     } catch (err) {
@@ -271,7 +271,7 @@ export default function Dashboard({ supabase, onLogout }) {
 
   const fetchClassComparison = useCallback(async () => {
     try {
-      const res = await fetch(`${API_BASE}/api/dashboard/class-comparison`);
+      const res = await apiFetch('/api/dashboard/class-comparison');
       const data = await res.json();
       setClassComparison(data.classes || []);
     } catch (err) {
@@ -1250,7 +1250,7 @@ function StudentsTab({ students, onStudentClick, onStudentsChanged }) {
 
     try {
       if (modalMode === 'add') {
-        const res = await fetch(`${API_BASE}/api/students`, {
+        const res = await apiFetch('/api/students', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -1265,7 +1265,7 @@ function StudentsTab({ students, onStudentClick, onStudentsChanged }) {
         if (onStudentsChanged) onStudentsChanged();
       } else {
         
-        const res = await fetch(`${API_BASE}/api/students/${selectedForEdit.id}`, {
+        const res = await apiFetch(`/api/students/${selectedForEdit.id}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -1296,7 +1296,7 @@ function StudentsTab({ students, onStudentClick, onStudentsChanged }) {
 
     setFormLoading(true);
     try {
-      const res = await fetch(`${API_BASE}/api/students/${deleteConfirm.id}`, {
+      const res = await apiFetch(`/api/students/${deleteConfirm.id}`, {
         method: 'DELETE',
       });
       const result = await res.json();
@@ -1627,7 +1627,7 @@ function ReportsTabEnhanced() {
         ...(filters.stars !== '' && { min_stars: filters.stars }),
       });
 
-      const res = await fetch(`${API_BASE}/api/dashboard/reports?${params}`);
+      const res = await apiFetch(`/api/dashboard/reports?${params}`);
       const data = await res.json();
 
       let result = data.reports || [];
@@ -1930,7 +1930,7 @@ function ModulesTab() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`${API_BASE}/api/lessons`)
+    apiFetch('/api/lessons')
       .then((res) => res.json())
       .then((data) => {
         setLessons(data || []);
@@ -2071,7 +2071,7 @@ function AnalyticsTab({ heatmapData, charRankings, classComparison, students, on
   useEffect(() => {
     if (!trendStudentId) { setTrendData(null); return; }
     setTrendLoading(true);
-    fetch(`${API_BASE}/api/dashboard/student-trend/${trendStudentId}?window=30`)
+    apiFetch(`/api/dashboard/student-trend/${trendStudentId}?window=30`)
       .then(r => r.json())
       .then(d => { setTrendData(d); setTrendLoading(false); })
       .catch(() => setTrendLoading(false));
@@ -2081,7 +2081,7 @@ function AnalyticsTab({ heatmapData, charRankings, classComparison, students, on
     setExporting(true);
     setExportMsg('');
     try {
-      const res = await fetch(`${API_BASE}/api/dashboard/export?format=${fmt}`);
+      const res = await apiFetch(`/api/dashboard/export?format=${fmt}`);
       if (fmt === 'csv') {
         const blob = await res.blob();
         const url = URL.createObjectURL(blob);
@@ -2292,7 +2292,7 @@ function AnalyticsTab({ heatmapData, charRankings, classComparison, students, on
 function StarsPieChartInline({ summary }) {
   const [starDist, setStarDist] = useState([]);
   useEffect(() => {
-    fetch(`${API_BASE}/api/dashboard/reports?limit=9999`).then(r => r.json()).then(data => {
+    apiFetch('/api/dashboard/reports?limit=9999').then(r => r.json()).then(data => {
       const reports = data.reports || [];
       const counts = [0, 0, 0, 0];
       reports.forEach(r => { const s = r.stars ?? 0; if (s >= 0 && s <= 3) counts[s] += 1; });

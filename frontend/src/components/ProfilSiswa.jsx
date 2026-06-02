@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import API_BASE from "../lib/api";
+import API_BASE, { apiFetch } from "../lib/api";
 import {
   UserCircle,
   Star,
@@ -32,7 +32,7 @@ export default function ProfilSiswa({ onNavigate, student }) {
   
   useEffect(() => {
     if (student?.id) {
-      fetch(`${API_BASE}/api/student/${student.id}/progress`)
+      apiFetch(`/api/student/${student.id}/progress`)
         .then((res) => res.json())
         .then((data) => {
           const allProgress = data || [];

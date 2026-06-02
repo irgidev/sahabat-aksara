@@ -15,7 +15,7 @@ import {
 } from '@phosphor-icons/react';
 import * as faceapi from 'face-api.js';
 import { loadModels } from '../lib/face-api';
-import API_BASE from '../lib/api';
+import API_BASE, { apiFetch } from '../lib/api';
 
 const VIDEO_CONSTRAINTS = {
   width: 320,
@@ -172,7 +172,7 @@ export default function FaceEnrollmentForm({ student, students, onEnrolled, onCa
         imageUrl = `enrolled-${selectedStudent.id}-${Date.now()}`;
       }
 
-      const res = await fetch(`${API_BASE}/api/students/${selectedStudent.id}/enroll-face`, {
+      const res = await apiFetch(`/api/students/${selectedStudent.id}/enroll-face`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

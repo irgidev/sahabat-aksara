@@ -14,7 +14,7 @@ import {
 } from '@phosphor-icons/react';
 import CameraView from './CameraView';
 import { loadModels, findBestMatch, parseDescriptor, MATCH_THRESHOLD } from '../lib/face-api';
-import API_BASE from '../lib/api';
+import API_BASE, { apiFetch } from '../lib/api';
 
 
 const DEMO_STUDENT = {
@@ -110,7 +110,7 @@ export default function LoginSiswa({ onNavigate, onStudentLogin }) {
 
   const fetchEnrolledStudents = useCallback(async () => {
     try {
-      const res = await fetch(`${API_BASE}/api/students/faces`);
+      const res = await apiFetch('/api/students/faces');
       const data = await res.json();
 
       

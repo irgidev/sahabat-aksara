@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ArrowLeft, Eye, EyeClosed, Spinner, WarningCircle } from '@phosphor-icons/react';
-import API_BASE from '../lib/api';
+import API_BASE, { apiFetch } from '../lib/api';
 
 export default function LoginGuru({ onNavigate, supabase }) {
   const [email, setEmail] = useState('');
@@ -23,7 +23,7 @@ export default function LoginGuru({ onNavigate, supabase }) {
 
     try {
       
-      const res = await fetch(`${API_BASE}/api/login-guru`, {
+      const res = await apiFetch('/api/login-guru', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: email.trim(), password }),
